@@ -57,5 +57,4 @@ jobs:
       with:
         directory: ./coverage/lcov
         flags: unittests
-        fail_ci_if_error: true
         verbose: true

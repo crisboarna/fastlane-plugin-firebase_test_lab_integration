@@ -1,0 +1,48 @@
+lane :test do
+  firebase_test_lab_android(
+    gcp_project: "project-id",
+    gcp_key_file: "path/to/gcp-service-role-key.json",
+    gcloud_results_bucket: "bucket-name",
+    gcloud_results_dir: "bucket-directory",
+    results_download_dir: "./test-results",
+    results_log_file_name: "test-lab-output.log",
+    timeout: "7m",
+    app_path: 'spec/integration/fixtures/android/app-debug.apk',
+    app_path_test: 'spec/integration/fixtures/android/app-debug-androidTest.apk',
+#     devices: [
+#       {
+#         model: 'redfin',
+#         version: '30',
+#         locale: 'en_US',
+#         orientation: 'portrait'
+#       }
+#     ],
+    github_owner: "crisboarna",
+    github_repository: "fastlane-plugin-firebase_test_lab_android",
+    github_pr_number: ENV.fetch('GH_PR_NUMBER', nil),
+    github_api_token: ENV.fetch('GH_API_TOKEN', nil)
+  )
+
+  firebase_test_lab_ios(
+    gcp_project: "project-id",
+    gcp_key_file: "path/to/gcp-service-role-key.json",
+    gcloud_results_bucket: "bucket-name",
+    gcloud_results_dir: "bucket-directory",
+    results_download_dir: "./test-results",
+    results_log_file_name: "test-lab-output.log",
+    timeout: "7m",
+    app_path: 'spec/integration/fixtures/ios/ios-tests.zip',
+#     devices: [
+#       {
+#         model: 'iphone13pro',
+#         version: '15.2',
+#         locale: 'en_US',
+#         orientation: 'portrait'
+#       }
+#     ],
+    github_owner: "crisboarna",
+    github_repository: "fastlane-plugin-firebase_test_lab_android",
+    github_pr_number: ENV.fetch('GH_PR_NUMBER', nil),
+    github_api_token: ENV.fetch('GH_API_TOKEN', nil)
+  )
+end

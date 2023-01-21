@@ -1,0 +1,57 @@
+name: push_main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📚 Git Checkout
+      uses: actions/checkout@v3
+
+    - name: 🧰 Set up NodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+
+    - name: 🧰 Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        bundler-cache: true
+
+    - name: 🔑 Decode Firebase Credentials
+      uses: timheuer/base64-to-file@v1.1
+      with:
+        fileName: 'service-role.json'
+        fileDir: './spec/integration/fixtures/'
+        encodedString: ${{ secrets.FIREBASE_CREDENTIALS }}
+
+    - name: ✨ Linting
+      run: bundle exec rake rubocop
+
+    - name: 🧪 Run unit/integration tests
+      run: bundle exec rake spec
+      env:
+        FIREBASE_TEST_LAB_INTEGRATION_GCP_PROJECT: ${{ secrets.FIREBASE_TEST_LAB_INTEGRATION_GCP_PROJECT }}
+        FIREBASE_TEST_LAB_INTEGRATION_GCP_KEY_FILE: spec/integration/fixtures/service-role.json
+        FIREBASE_TEST_LAB_INTEGRATION_GCP_RESULTS_BUCKET: ${{ secrets.FIREBASE_TEST_LAB_INTEGRATION_GCP_RESULTS_BUCKET }}
+        FIREBASE_TEST_LAB_INTEGRATION_GCP_RESULTS_DIR: ${{ secrets.FIREBASE_TEST_LAB_INTEGRATION_GCP_RESULTS_DIR }}
+        FIREBASE_TEST_LAB_INTEGRATION_TIMEOUT: 7m
+
+    - name: 📊 Code Coverage
+      uses: codecov/codecov-action@v3
+      with:
+        directory: ./coverage/lcov
+        flags: unittests
+        fail_ci_if_error: true
+        verbose: true
+
+    - name: 🚀 Release
+      run: bundle exec rake semantic_release
+      env:
+        GEM_HOST_API_KEY: ${{ secrets.GEM_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}

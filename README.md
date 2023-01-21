@@ -60,7 +60,7 @@ Comprehensive and easy to use fastlane plugin for Firebase Test Lab integration.
 2. No gem dependencies (no issues in the future with incompatibility with other gem versions)
 3. Expandable API (you can add your own parameters to the plugin that are passed to underlying `gcloud` command)
 4. Unit(80%+) & Integration tests on Firebase Test Lab for Android/iOS
-5. Post test results as a comment to Github PRs
+5. Post test results as a comment to Github PRs ([example PR](https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/pull/1))
 
 This fastlane plugin includes the following actions:
 

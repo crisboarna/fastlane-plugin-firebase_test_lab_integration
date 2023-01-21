@@ -1,0 +1,20 @@
+*.gem
+Gemfile.lock
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+fastlane/README.md
+fastlane/report.xml
+coverage
+test-results
+.idea/
+*.iml
+*.log
+.env*
+!.env.dist
+**/*.json
+out/
+.DS_Store

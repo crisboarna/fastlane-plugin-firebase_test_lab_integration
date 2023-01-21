@@ -102,7 +102,7 @@ module FirebaseTestLabIntegration
       end
 
       def generate_comment_content(json, project_id, bucket, dir, platform, test_type)
-        prefix = "<img alt=\"#{platform}\" src=\"https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/blob/master/docs/firebase_test_lab_logo.png?raw=true\" width=\"65%\" loading=\"lazy\" />"
+        prefix = "<img alt=\"#{platform}\" src=\"https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/blob/main/docs/images/firebase_test_lab_logo.png?raw=true\" width=\"65%\" loading=\"lazy\" />"
         cells = json.map do |data|
           axis = data["axis_value"]
           device = split_device_name(axis)

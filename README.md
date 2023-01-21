@@ -7,11 +7,8 @@
 <a href="https://rubygems.org/gems/fastlane-plugin-firebase_test_lab_integration">
   <img alt="fastlane Plugin Badge" src="https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg">
 </a>
-<a href="https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/actions/workflows/push_main.yaml">
-  <img alt="github action workflow" src="https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/actions/workflows/push_main.yaml/badge.svg">
-</a>
-<a href="https://snyk.io/test/github/crisboarna/fastlane-plugin-firebase_test_lab_integration">
-  <img alt="snyk" src="https://snyk.io/test/github/crisboarna/fastlane-plugin-firebase_test_lab_integration/badge.svg?targetFile=Gemfile">
+<a href="https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/actions/workflows/push_main.yml">
+  <img alt="github action workflow" src="https://github.com/crisboarna/fastlane-plugin-firebase_test_lab_integration/actions/workflows/push_main.yml/badge.svg">
 </a>
 <a href="https://codecov.io/gh/crisboarna/fastlane-plugin-firebase_test_lab_integration">
   <img alt="codecov" src="https://img.shields.io/codecov/c/github/crisboarna/fastlane-plugin-firebase_test_lab_integration.svg">
